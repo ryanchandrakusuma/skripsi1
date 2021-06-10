@@ -1,0 +1,118 @@
+@font-face { font-family: OSans; src: url('fonts/OpenSans.eot'), url('fonts/OpenSans.ttf'); }
+@font-face { font-family: OSansI; src: url('fonts/OpenSansItalic.eot'), url('fonts/OpenSansItalic.ttf'); }
+@font-face { font-family: OSansB; src: url('fonts/OpenSansBold.eot'), url('fonts/OpenSansBold.ttf'); }
+@font-face { font-family: OSansL; src: url('fonts/OpenSansLight.eot'), url('fonts/OpenSansLight.ttf'); }
+@font-face { font-family: OSansS; src: url('fonts/OpenSansSemibold.eot'), url('fonts/OpenSansSemibold.ttf'); }
+@font-face { font-family: Social; src: url('fonts/SocialIcon.eot'), url('fonts/SocialIcon.ttf'); }
+
+h1, h2, h3, h4, h5 
+{
+    font-family: 'OSansS'; 
+    font-weight: normal; 
+    line-height: 125%; 
+    margin: 0 0 15px; 
+}
+
+h1 { font-size: 2.3em; }
+h2 { font-size: 2em; }
+h3 { font-size: 1.7em; }
+h4 { font-size: 1.4em; }
+h5 { font-size: 1.1em; }
+.clear { clear: both; }
+
+a 
+{
+    color: #555;
+    text-decoration: none; 
+}
+
+p { margin: 0 0 20px; }
+p:last-of-type { margin: 0; }
+
+.inner
+{
+    margin: 0 auto; 
+    max-width: 1200px;
+    position: relative;
+    z-index: 2;
+}
+
+.nan 
+{
+    color: #aaa; 
+    font-family: 'OSansI';
+}
+
+.nan.w-space 
+{
+    display: inline-block;
+    margin: 10px 0 0; 
+}
+
+hr
+{
+    background-color: #ddd;
+    border: none;
+    height: 1px;
+    margin: 60px 0 50px;
+    padding: 0;
+}
+
+.error-mask
+{
+    display: grid;
+    grid-template-columns: auto 500px auto;
+    grid-template-rows: auto 470px auto;
+    height: 100%;
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+.error-msg
+{
+    background: rgba(0, 0, 0, .7);
+    grid-column: 2/3;
+    grid-row: 2/3;
+    overflow-y: hidden;
+    padding: 30px 45px;
+}
+
+.error-msg img
+{
+    display: block;
+    margin: 0 auto 20px;
+    width: 150px;
+}
+
+.error-code
+{
+    color: #fff;
+    font-family: 'OSansB';
+    font-size: 6em;
+    margin-bottom: 60px;
+    text-align: center;
+}
+
+.error-msg p.w-space { margin: 0 0 10px; }
+
+.error-msg p
+{
+    color: #ccc;
+    font-size: 1.2em;
+    margin: 0;
+    text-align: center;
+}
+
+.error-msg > div { text-align: center; }
+
+.error-msg a
+{
+    display: inline-block;
+    font-size: 1.2em;
+    transition: color.25s;
+    -webkit-transition: color.25s;
+}
+
+.error-msg a:hover { color: #f0721d; }

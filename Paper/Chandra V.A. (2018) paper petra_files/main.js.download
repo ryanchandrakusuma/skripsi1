@@ -1,0 +1,87 @@
+function prevPage() {
+    $('#page').val($('#page').val() - 1);
+    $('#search_form').submit();
+}
+
+function nextPage() {
+    $('#page').val(parseInt($('#page').val()) + 1);
+    $('#search_form').submit();
+}
+
+function jumpPage(input) {
+    $('#page').val($(input).val());
+    $('#search_form').submit();
+}
+
+function advanceJump(input) {
+    window.location = $('#curURL').val() + '&page=' + $(input).val();
+}
+
+function browseJump() {
+    window.location = $('#curURL').val() + '&page=' + $('#go_to_page').val();
+}
+
+function specialJump() {
+    window.location = $('#curURL').val() + '&page=' + $('#go_to_page').val();
+}
+
+$(window).load(function () {
+    $('li.iconic').click(function (e) {
+        e.stopPropagation();
+        $('.profile-container').toggleClass('shown');
+    });
+    
+    $('.profile-container').on('click', function (e) { e.stopPropagation(); });
+    
+    $('.expand-menu-btn').click(function () {
+        $(this).toggleClass('expanded');
+        $('.search-container.minimized .search-panel > ul, .search-container.browse .browse-panel > ul').toggleClass('expanded');
+    });
+    
+    $('#browse_class_button').focusin(function () { 
+        $('.class-popup-mask, .class-popup').addClass('shown');
+    });
+    
+    $('.class-popup').click(function () {
+        $('.class-popup-mask, .class-popup').removeClass('shown');
+    });
+    
+    $('ul.journal-tab li').click(function () {
+        $('ul.journal-tab li, ul.journal-content li').removeClass('shown');
+        $(this).addClass('shown');
+        $('#' + $(this).attr('id') + '-journal').addClass('shown');
+    });
+    
+    $('.search-container select').change(function () {
+        if ($(this).val() == '') {
+            $(this).css('color', 'rgba(255, 255, 255, .6)');
+        } else {
+            $(this).css('color', '#fff');
+        }
+    });
+    
+    $('.mainmenu-btn').click(function () {
+        $('ul.mainmenu').toggleClass('shown');
+        $(this).toggleClass('close');
+    });
+});
+
+$(document).ready(function () {
+    $('.search-container select').each(function () {
+        if ($(this).val() == '') {
+            $(this).css('color', 'rgba(255, 255, 255, .6)');
+        } else {
+            $(this).css('color', '#fff');
+        }
+    });
+});
+
+$(document).on('click', function () {
+    $('.profile-container').removeClass('shown');
+});
+
+$(document).click(function(event) {
+    if (!$(event.target).is('ul.class-list, #dropdown_class')) {
+        $('ul.class-list').slideUp(250);
+    }
+});

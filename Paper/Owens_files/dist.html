@@ -1,0 +1,136 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- saved from url=(0094)https://tutsplus.github.io/goal-oriented-action-planning-for-artificial-intelligence/dist.html -->
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		
+		<title>GOAP by Brent Owens</title>
+		<script type="text/javascript" async="" src="./ga.js.download"></script><script type="text/javascript" src="./jquery.min.js.download"></script>
+		<script type="text/javascript">
+		<!--
+		var unityObjectUrl = "http://webplayer.unity3d.com/download_webplayer-3.x/3.0/uo/UnityObject2.js";
+		if (document.location.protocol == 'https:')
+			unityObjectUrl = unityObjectUrl.replace("http://", "https://ssl-");
+		document.write('<script type="text\/javascript" src="' + unityObjectUrl + '"><\/script>');
+		-->
+		</script><script type="text/javascript" src="./UnityObject2.js.download"></script>
+		<script type="text/javascript">
+		<!--
+			var config = {
+				width: 600, 
+				height: 400,
+				params: { enableDebugging:"0" }
+				
+			};
+			var u = new UnityObject2(config);
+
+			jQuery(function() {
+
+				var $missingScreen = jQuery("#unityPlayer").find(".missing");
+				var $brokenScreen = jQuery("#unityPlayer").find(".broken");
+				$missingScreen.hide();
+				$brokenScreen.hide();
+				
+				u.observeProgress(function (progress) {
+					switch(progress.pluginStatus) {
+						case "broken":
+							$brokenScreen.find("a").click(function (e) {
+								e.stopPropagation();
+								e.preventDefault();
+								u.installPlugin();
+								return false;
+							});
+							$brokenScreen.show();
+						break;
+						case "missing":
+							$missingScreen.find("a").click(function (e) {
+								e.stopPropagation();
+								e.preventDefault();
+								u.installPlugin();
+								return false;
+							});
+							$missingScreen.show();
+						break;
+						case "installed":
+							$missingScreen.remove();
+						break;
+						case "first":
+						break;
+					}
+				});
+				u.initPlugin(jQuery("#unityPlayer")[0], "dist.unity3d");
+			});
+		-->
+		</script>
+		<style type="text/css">
+		<!--
+		body {
+			font-family: Helvetica, Verdana, Arial, sans-serif;
+			background-color: white;
+			color: black;
+			text-align: center;
+			margin: 0px;
+		}
+		a:link, a:visited {
+			color: #000;
+		}
+		a:active, a:hover {
+			color: #666;
+		}
+		p.header {
+			font-size: small;
+		}
+		p.header span {
+			font-weight: bold;
+		}
+		p.footer {
+			font-size: x-small;
+		}
+		div.content {
+			margin: 0px;
+			width: 600px;
+		}
+		div.broken,
+		div.missing {
+			margin: auto;
+			position: relative;
+			top: 50%;
+			width: 193px;
+		}
+		div.broken a,
+		div.missing a {
+			height: 63px;
+			position: relative;
+			top: -31px;
+		}
+		div.broken img,
+		div.missing img {
+			border-width: 0px;
+		}
+		div.broken {
+			display: none;
+		}
+		div#unityPlayer {
+			cursor: default;
+			height: 400px;
+			width: 600px;
+		}
+		-->
+		</style>
+	</head>
+	<body>
+		<div class="content">
+			<div id="unityPlayer">
+				<div class="missing" style="display: none;">
+					<a href="http://unity3d.com/webplayer/" title="Unity Web Player. Install now!">
+						<img alt="Unity Web Player. Install now!" src="./getunity.png" width="193" height="63">
+					</a>
+				</div>
+				<div class="broken" style="display: none;">
+					<a href="http://unity3d.com/webplayer/" title="Unity Web Player. Install now! Restart your browser after install.">
+						<img alt="Unity Web Player. Install now! Restart your browser after install." src="./getunityrestart.png" width="193" height="63">
+					</a>
+				</div>
+			<div id="ThisBrowserDoesNotSupportUnityPlayer" style="width: 100%; height: 200px; background: rgba(231, 228, 157, 0.25); border-color: rgba(231, 228, 157, 0.15); border-style: solid; color: rgba(0, 0, 0, 0.65); text-align: left; padding: 10px;"><img src="./other_browser.jpg" style="float: left; margin-right: 15px;"><div style="overflow:hidden;"><div style="height:202px; display:inline-block; vertical-align:middle;"></div><div style="display:inline-block;"><div style="display:inline-block; vertical-align:middle;"><span style="font-weight:bold; font-size: 1.1em;">Sorry, Google Chrome can't run this app</span><p>You are using Google Chrome that does not support the Unity Web Player plugin needed to run this app.<br>We recommend using another browser, such as <a href="http://windows.microsoft.com/en-us/internet-explorer/">Internet Explorer</a>, <a href="http://www.mozilla.org/firefox">Firefox</a> or <a href="http://www.opera.com/">Opera</a>.</p></div></div></div></div></div>
+		</div>
+	
+
+</body></html>
